@@ -1,12 +1,12 @@
 public class WhatIsIt {
 
     private int[][] tableCayley;
-    private int len, indElem;
+    private int size, indElem;
 
-    public WhatIsIt(int[][] tableCayley, int len) {
+    public WhatIsIt(int[][] tableCayley, int size) {
 
         this.tableCayley = tableCayley;
-        this.len = len;
+        this.size = size;
     }
 
     private enum type {
@@ -46,9 +46,9 @@ public class WhatIsIt {
 
     private boolean foo() {
 
-        for (int a = 0; a < len; a++) {
-            for (int b = 0; b < len; b++) {
-                if (tableCayley[a][b] >= len) {
+        for (int a = 0; a < size; a++) {
+            for (int b = 0; b < size; b++) {
+                if (tableCayley[a][b] >= size) {
                     return false;
                 }
             }
@@ -59,9 +59,9 @@ public class WhatIsIt {
     private boolean Associative() {
 
         int z1, z2;
-        for (int a = 0; a < len; a++) {
-            for (int b = 0; b < len; b++) {
-                for (int c = 0; c < len; c++) {
+        for (int a = 0; a < size; a++) {
+            for (int b = 0; b < size; b++) {
+                for (int c = 0; c < size; c++) {
                     z1 = tableCayley[a][b];
                     z2 = tableCayley[b][c];
                     if (tableCayley[z1][c] != tableCayley[a][z2]) {
@@ -76,8 +76,8 @@ public class WhatIsIt {
     private boolean IndentityElem() {
 
         boolean flag = false;
-        for (int e = 0; e < len; e++) {
-            for (int x = 0; x < len; x++) {
+        for (int e = 0; e < size; e++) {
+            for (int x = 0; x < size; x++) {
                 if (tableCayley[e][x] == x && tableCayley[x][e] == x) {
                     flag = true;
                 } else {
@@ -96,8 +96,8 @@ public class WhatIsIt {
     private boolean InverseElem()
     {
         boolean flag = false;
-        for (int x = 0; x < len; x++) {
-            for (int a = 0; a < len; a ++) {
+        for (int x = 0; x < size; x++) {
+            for (int a = 0; a < size; a ++) {
                 if (tableCayley[x][a] == indElem && tableCayley[a][x] == indElem) {
                     flag = true;
                     break;
@@ -112,8 +112,8 @@ public class WhatIsIt {
 
     private boolean Commutative() {
 
-        for (int a = 0; a < len; a++) {
-            for (int b = 0; b < len; b++) {
+        for (int a = 0; a < size; a++) {
+            for (int b = 0; b < size; b++) {
                 if (tableCayley[a][b] != tableCayley[b][a]) {
                     return false;
                 }
