@@ -10,7 +10,6 @@ public class WhatIsIt {
     }
 
     private enum type {
-        //переименовать
         nothing,
         magma,
         semigroup,
@@ -27,7 +26,7 @@ public class WhatIsIt {
         }
 
         if (Associative()) {
-            if (IndentityElem()) {
+            if (IdentityElem()) {
                 if (InverseElem()) {
                     if (Commutative()) {
                         return type.abeliangroup;
@@ -73,14 +72,12 @@ public class WhatIsIt {
         return true;
     }
 
-    private boolean IndentityElem() {
+    private boolean IdentityElem() {
 
-        boolean flag = false;
         for (int e = 0; e < size; e++) {
+            boolean flag = true;
             for (int x = 0; x < size; x++) {
-                if (tableCayley[e][x] == x && tableCayley[x][e] == x) {
-                    flag = true;
-                } else {
+                if (tableCayley[e][x] != x || tableCayley[x][e] != x) {
                     flag = false;
                     break;
                 }
@@ -106,6 +103,7 @@ public class WhatIsIt {
             if (!flag) {
                 return false;
             }
+            flag = false;
         }
         return true;
     }
